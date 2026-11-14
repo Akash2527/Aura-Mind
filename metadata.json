@@ -1,0 +1,10 @@
+{
+  "name": "Aura Mind",
+  "description": "Train Your Mind. Master Your Voice. Level Up Your Presence. A science-informed personal development platform, brain game suite, Socratic AI mentor, and communication training studio.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

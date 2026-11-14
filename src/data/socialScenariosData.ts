@@ -1,0 +1,135 @@
+import { SocialScenario } from '../types';
+
+export const SOCIAL_SCENARIOS: Record<string, SocialScenario> = {
+  scenario_credit_theft: {
+    id: 'scenario_credit_theft',
+    title: 'Teammate Takes Credit in High-Stakes Meeting',
+    category: 'Assertiveness & Leadership',
+    context: 'During an executive review, a peer presents the analytical model and insights you spent weeks engineering, referring to it repeatedly as "my original framework" without acknowledging your contribution.',
+    dilemma: 'The executive committee is highly impressed. If you stay silent, your leadership presence and contribution are erased. If you interrupt angrily, you appear petty and uncomposed.',
+    choices: [
+      {
+        text: 'Interrupt immediately with indignation: "Wait a second, that was my model! Why are you pretending you built this?"',
+        style: 'Aggressive',
+        consequence: 'The meeting grinds to an awkward standstill. Leadership views you as emotionally reactive and unable to handle professional friction, overshadowing the technical merit of your work.',
+        attributeChanges: { COMPOSURE: -10, EXPRESSION: -5 },
+        xpAward: 20,
+        explanation: 'Direct emotional confrontation in a client or executive forum damages personal aura and shifts scrutiny onto your temperament rather than their ethical breach.',
+      },
+      {
+        text: 'Say nothing during the meeting. Complain privately to colleagues in the hallway afterward.',
+        style: 'Passive-Aggressive',
+        consequence: 'Your colleague secures the prestige, and venting in the hallway damages your reputation as a gossip rather than a resolute leader.',
+        attributeChanges: { COMPOSURE: -5, STRATEGY: -5 },
+        xpAward: 20,
+        explanation: 'Passive avoidance cedes ground while back-channel venting corrodes trust and signals weakness.',
+      },
+      {
+        text: 'Intervene warmly with additive context: "Thank you for highlighting the architecture, Jordan. Building on the core model I engineered, our key finding was actually in the secondary risk variance. Let me walk the committee through how we stress-tested that parameter."',
+        style: 'Assertive & Composed',
+        consequence: 'You calmly establish undeniable ownership of the model without drama. Executives note your mastery and poise. After the meeting, you meet Jordan 1-on-1 to establish non-negotiable attribution boundaries.',
+        attributeChanges: { COMPOSURE: 15, STRATEGY: 15, EXPRESSION: 10 },
+        xpAward: 90,
+        explanation: 'The "Yes, and Anchor" technique: Claim ownership through technical depth and composure, avoiding public hostility while cementing indisputable authority.',
+      },
+    ],
+    socraticLesson: 'Composed assertiveness wins by demonstrating mastery in real time, never through emotional pleas for fairness.',
+  },
+
+  scenario_handling_criticism: {
+    id: 'scenario_handling_criticism',
+    title: 'Navigating Hostile or Vague Feedback',
+    category: 'Composure & Emotional Intelligence',
+    context: 'A senior director glances at your proposal and remarks sharply: "This entire approach is completely off the mark. It lacks strategic vision and feels like a junior effort."',
+    dilemma: 'The feedback is emotionally abrasive and vague. You feel an immediate urge to defend your credentials or withdraw in defeat.',
+    choices: [
+      {
+        text: 'Defend defensively: "I worked 60 hours on this with solid data. I don\'t think that\'s a fair or professional characterization of my effort."',
+        style: 'Aggressive',
+        consequence: 'Focus shifts onto your defensiveness. The director doubles down on their critique and views you as resistant to tough feedback.',
+        attributeChanges: { COMPOSURE: -10, WISDOM: -5 },
+        xpAward: 25,
+        explanation: 'Defending effort rather than outcome reinforces perceived junior status. Executives care about strategic alignment, not hours logged.',
+      },
+      {
+        text: 'Apologize profusely: "I\'m so sorry, you\'re right. I\'ll throw it away and redo whatever you want."',
+        style: 'Passive',
+        consequence: 'You sacrifice credibility and signal lack of intellectual backbone.',
+        attributeChanges: { COMPOSURE: -10, STRATEGY: -10 },
+        xpAward: 20,
+        explanation: 'Submissive compliance without inquiry communicates insecurity rather than competence.',
+      },
+      {
+        text: 'Pause, regulate posture, and probe with surgical neutrality: "I appreciate the candor. Help me calibrate: specifically which core assumptions in Section 2 fall short of your strategic criteria?"',
+        style: 'Assertive & Composed',
+        consequence: 'The emotional heat evaporates. The director is forced to specify exact business parameters, revealing whether the issue is a genuine strategic nuance or mere personal bias.',
+        attributeChanges: { COMPOSURE: 20, WISDOM: 15, LOGIC: 10 },
+        xpAward: 95,
+        explanation: 'The Socratic Inquiry: Convert hostile ambiguity into concrete empirical criteria. True composure treats criticism as data, not an attack on the ego.',
+      },
+    ],
+    socraticLesson: 'When attacked with vague criticism, do not shield your pride. Calmly hand the critic a magnifying glass and ask for specific coordinates.',
+  },
+
+  scenario_scope_creep: {
+    id: 'scenario_scope_creep',
+    title: 'Negotiating Scope Creep & Unrealistic Deadlines',
+    category: 'Negotiation & Boundary Setting',
+    context: 'Three days before launch, an executive sponsor requests adding three complex new integrations, while insisting the hard deadline cannot move.',
+    dilemma: 'Saying "yes" guarantees team burnout and severe quality defects. Flatly saying "no" sounds obstinate and non-collaborative.',
+    choices: [
+      {
+        text: 'Agree immediately out of fear of saying no: "We\'ll work all night and figure it out somehow."',
+        style: 'Passive',
+        consequence: 'Launch suffers catastrophic bugs, system outages, and team demoralization. You absorb the blame.',
+        attributeChanges: { STRATEGY: -15, COMPOSURE: -5 },
+        xpAward: 25,
+        explanation: 'Agreeing to the impossible is not commitment; it is an abdication of professional stewardship.',
+      },
+      {
+        text: 'Push back bluntly: "That\'s totally impossible and unreasonable at this stage. Have you seen our roadmap?"',
+        style: 'Aggressive',
+        consequence: 'Creates an adversarial standoff. Leadership views you as an obstacle rather than an executive partner.',
+        attributeChanges: { EXPRESSION: -10, EMPATHY: -10 },
+        xpAward: 30,
+        explanation: 'Blunt resistance without constructive trade-offs forces senior leaders into defensive dominance mode.',
+      },
+      {
+        text: 'Present the Iron Triangle of Project Management with collaborative trade-offs: "We can absolutely incorporate these three integrations! To protect system stability for the launch, which two features from Phase 1 shall we defer to Phase 2 to create the necessary capacity?"',
+        style: 'Assertive & Composed',
+        consequence: 'The executive realizes every choice carries a trade-off. They either fund extra runway or prioritize the top integration calmly.',
+        attributeChanges: { STRATEGY: 20, EXPRESSION: 15, EMPATHY: 10 },
+        xpAward: 95,
+        explanation: 'The Trade-Off Anchor: Never say a raw "no" to authority; instead, say "Yes, and here are the mathematical trade-offs required to execute it safely."',
+      },
+    ],
+    socraticLesson: 'True leaders do not complain about constraints; they make trade-offs transparent and force conscious prioritization.',
+  },
+
+  scenario_unproductive_meeting: {
+    id: 'scenario_unproductive_meeting',
+    title: 'Refocusing a Derailing Group Discussion',
+    category: 'Leadership & Focus',
+    context: 'A 60-minute decision meeting is 40 minutes in. Two senior colleagues have been arguing in circles over a minor procedural detail, leaving the main budget decision untouched.',
+    dilemma: 'Everyone is checking their phones in frustration, but nobody wants to interrupt the senior colleagues.',
+    choices: [
+      {
+        text: 'Keep looking at your laptop and wait for the meeting to end.',
+        style: 'Passive',
+        consequence: 'The hour expires with zero resolution. A follow-up meeting is scheduled, wasting dozens of engineering hours.',
+        attributeChanges: { STRATEGY: -5, FOCUS: -5 },
+        xpAward: 20,
+        explanation: 'Bystander apathy in leadership meetings compounds organizational inertia.',
+      },
+      {
+        text: 'Intervene with tactical synthesis: "Excuse me, Marcus and Elena—this procedural question is vital for implementation. Since we have 18 minutes left and our mandate today is finalizing the core budget, could we time-box this sub-issue to a separate 15-minute sync tomorrow, and resolve the budget vote right now?"',
+        style: 'Assertive & Composed',
+        consequence: 'The room breathes a collective sigh of relief. Both debaters agree to the offline sync, and the core decision is resolved with 5 minutes to spare. Your leadership acumen is recognized.',
+        attributeChanges: { STRATEGY: 20, COMPOSURE: 15, EXPRESSION: 15 },
+        xpAward: 90,
+        explanation: 'Reframing to the collective mandate honors both speakers while firmly returning the group to the primary objective.',
+      },
+    ],
+    socraticLesson: 'Leadership presence is not loud authority; it is the timely courage to steer the ship back to the true north.',
+  },
+};
